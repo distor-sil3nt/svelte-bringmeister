@@ -4,12 +4,13 @@
 
 	export let product: Product;
 
-	$: ({ name, image, basePrice, baseUnit } = product);
+	$: ({ name, image, basePrice, baseUnit, cartCount } = product);
 
-	const formattedBasePrice = formatCurrency(product.basePrice, 'de-De', 'EUR');
+	const formattedBasePrice = formatCurrency(product.basePrice, 'de-DE', 'EUR');
 </script>
 
 <article>
+	Count: {cartCount}
 	<img src={`${image}?imwidth=175`} alt={`Image of ${name}`} />
 	<h3>{name}</h3>
 	<p>
@@ -22,8 +23,25 @@
   @use '../styles/variables/colors' as *
 
   article
+    display: grid
     border-radius: 2px
     box-shadow: 2px 2px 8px rgba($black, 0.1)
     padding: 1em
     background-color: $white
+  
+  img
+    justify-self: center
+  
+  p
+    align-self: end
+    margin-bottom: 0
+
+    data
+      display: block
+      font-size: 1.8rem
+      font-weight: 700
+      color: $black
+
+    span
+      font-size: 1rem
 </style>

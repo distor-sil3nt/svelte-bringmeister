@@ -7,16 +7,22 @@ body
   margin: 0
   font-family: $font-family, Arial, Helvetica, sans-serif
   font-size: $font-size
-  background-color: $grey
+  color: $grey
+  background-color: $grey-100
 
-:is(.info, .error)
+h1, h2, h3, h4, h5, h6
+  color: $black
+
+// :is(.error, .info) not working with dart sass compiler - open an issue on github
+.error, .info
   border-left: 4px solid currentColor
   padding: $small
-
-.info
-  color: $blue
-  background-color: $blue-light
 
 .error
   color: $red
   background-color: $red-light
+
+.info
+  color: $blue
+  background-color: $blue-light
+  

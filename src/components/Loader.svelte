@@ -20,6 +20,9 @@
 <style lang="sass">
   @use '../styles/variables/colors' as *
 
+  div
+    margin: 0 auto
+
   svg
     max-width: 100px
     animation: 2s linear infinite spin

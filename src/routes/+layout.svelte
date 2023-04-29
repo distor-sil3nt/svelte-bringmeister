@@ -5,7 +5,6 @@
 	import { setContext } from 'svelte';
 
 	let searchTerm: string;
-	let filteredList: Product[];
 
 	$: {
 		isLoading.set(false);
@@ -15,14 +14,16 @@
 	setContext('isLoading', isLoading);
 	setContext('search', search);
 
-	const setSearchTerm = () => {
-		setContext('search', searchTerm);
+	const setSearch = () => {
+		search.set(searchTerm);
 	};
 </script>
 
 <header>
-	<BringmeisterLogo aria-hidden="true" focusable="false" role="img" class="logo" />
-	<Search bind:searchTerm on:updateSearch={setSearchTerm} />
+	<a href="/" aria-label="Back home"
+		><BringmeisterLogo aria-hidden="true" focusable="false" role="img" class="logo" /></a
+	>
+	<Search bind:searchTerm on:updateSearch={setSearch} />
 </header>
 
 <main aria-busy={$isLoading}>
@@ -40,8 +41,14 @@
     padding-left: $medium
 
   header
+    display: flex
+    align-items: center
     padding: $medium
     background-color: $white
+
+    > *
+      &:not(:last-child)
+        padding-right: $large
 
   .logo
     width: 250px
