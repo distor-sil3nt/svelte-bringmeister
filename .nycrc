@@ -1,0 +1,22 @@
+{
+  "src": [
+    "src"
+  ],
+  "include": [
+    "src"
+  ],
+  "extends": [
+    "babel-plugin-istanbul",
+    "@istanbuljs/nyc-config-typescript"
+  ],
+  "extension": [
+    ".ts",
+    ".svelte"
+  ],
+  "all": true,
+  "check-coverage": true,
+  "reporter": [
+    "lcov"
+  ],
+  "report-dir": "./tests/coverage"
+}
