@@ -12,9 +12,9 @@
 
 	const search = getContext('search');
 
-  onMount(async () => {
-    cartCounts.set(await getCounts());
-  })
+	onMount(async () => {
+		cartCounts.set(await getCounts());
+	});
 
 	const getCounts = async (): { [key: string]: number } => {
 		const cart = await getFromApi().cart();
@@ -49,9 +49,9 @@
 </script>
 
 <h1>Bringmeister coding challenge</h1>
-<p>Search Term: {$search}</p>
+<p>Results for Products</p>
 
-<h2>Product</h2>
+<h2>Products</h2>
 {#await setLoadingState(getProducts)}
 	<div transition:fade on:introstart={() => (visible = false)} on:outroend={() => (visible = true)}>
 		<Loader width={50} text="Products" />

@@ -51,5 +51,7 @@
         padding-right: $large
 
   .logo
-    width: 250px
+    width: 100%
+    @media (min-width: $mobile)
+      width: 250px
 </style>

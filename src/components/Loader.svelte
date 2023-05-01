@@ -18,10 +18,14 @@
 </div>
 
 <style lang="sass">
+  @use '../styles/variables/breakpoints' as *
   @use '../styles/variables/colors' as *
 
   div
-    margin: 0 auto
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
 
   svg
     max-width: 100px
