@@ -9,10 +9,23 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "$lib": [
+        "src/lib"
+      ],
+      "$lib/*": [
+        "src/lib/*"
+      ],
+      "@/*": [
+        "src/*"
+      ]
+    }
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.svelte",
+    "tests/**/*.ts"
   ],
 }

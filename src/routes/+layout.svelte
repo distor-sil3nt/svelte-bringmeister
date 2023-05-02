@@ -21,8 +21,8 @@
 
 <header>
 	<a href="/" aria-label="Back home"
-		><BringmeisterLogo aria-hidden="true" focusable="false" role="img" class="logo" /></a
-	>
+		><BringmeisterLogo aria-hidden="true" focusable="false" role="img" class="logo" />
+	</a>
 	<Search bind:searchTerm on:updateSearch={setSearch} />
 </header>
 

@@ -6,7 +6,6 @@
     "src"
   ],
   "extends": [
-    "babel-plugin-istanbul",
     "@istanbuljs/nyc-config-typescript"
   ],
   "extension": [

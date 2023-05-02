@@ -1,6 +1,7 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import svg from '@poppanator/sveltekit-svg';
 import istanbul from 'vite-plugin-istanbul';
+import path from 'path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
@@ -15,13 +16,16 @@ export default defineConfig({
 			extension: ['.ts', '.svelte'],
 			all: true,
 			checkCoverage: true,
-			reporter: ['lcov'],
-			reportDir: './tests/coverage',
 			requireEnv: false,
 			forceBuildInstrument: true
 		}),
 		svg()
 	],
+	resolve: {
+		alias: {
+			'@': path.resolve(__dirname, 'src')
+		}
+	},
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
