@@ -8,4 +8,3 @@ node_modules
 .nyc_output
 !.env.example
 tests/coverage
-playwright-report
