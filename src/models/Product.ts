@@ -4,5 +4,4 @@ export interface Product {
 	name: string;
 	basePrice: number;
 	baseUnit: string;
-	cartCount: number;
 }

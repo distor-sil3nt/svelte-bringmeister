@@ -2,11 +2,13 @@
 	import { Placeholder } from '@/components';
 	import type { HttpStatusType, Product } from '@/models';
 	import { checkImage, formatCurrency } from '@/utils/helpers';
+	import { cartCounts } from '$lib';
 	import { beforeUpdate, onMount } from 'svelte';
 
 	export let product: Product;
 
-	$: ({ name, image, basePrice, baseUnit, cartCount } = product);
+	$: ({ name, image, basePrice, baseUnit, sku } = product);
+  $: cartCount = $cartCounts[sku]
 	$: src = `${image}?imwidth=175`;
 
 	const formattedBasePrice = formatCurrency(product.basePrice, 'de-DE', 'EUR');

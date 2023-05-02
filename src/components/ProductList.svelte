@@ -1,10 +1,16 @@
 <script lang="ts">
 	import { ProductTile } from '@/components';
 	import type { Product } from '@/models';
-	import { filterProducts, search } from '$lib';
+	import { cartCounts, getCounts, filterProducts, search } from '$lib';
+
+  import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
 	export let products: Product[];
+
+  onMount(async () => {
+		cartCounts.set(await getCounts());
+	});
 </script>
 
 <ul id="product-list" in:fade>

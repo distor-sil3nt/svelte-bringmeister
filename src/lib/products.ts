@@ -7,7 +7,7 @@ export const filterProducts = (products: Product[], searchTerm?: string): Produc
     : products;
 };
 
-export const getProducts = async (cartCounts: { [key: string]: number }): Promise<Product[]> => {
+export const getProducts = async (): Promise<Product[]> => {
 	const data = await getFromApi().products();
 
 	return data.edges.map(({ node: { sku, image, name, prices } }) => ({
@@ -16,6 +16,5 @@ export const getProducts = async (cartCounts: { [key: string]: number }): Promis
 		name,
 		basePrice: prices.basePrice,
 		baseUnit: prices.baseUnit,
-		cartCount: cartCounts[sku] ?? 0
 	}));
 };
