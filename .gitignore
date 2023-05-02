@@ -6,5 +6,6 @@ node_modules
 .env
 .env.*
 .nyc_output
+playwright-report
 !.env.example
 tests/coverage
