@@ -37,5 +37,23 @@ test('displays base price in correct format', async ({ page }) => {
 });
 
 test('shows cart count when product is in cart', async ({ page }) => {
-	page.locator('[aria-label="amount in cart"]');
+	await page.getByRole('list').waitFor();
+
+  // arrange
+	const amounts = page.locator('[aria-label="amount in cart"]');
+	await amounts.last().waitFor();
+	const amountsCount = await amounts.count();
+
+  // assert
+	if (amountsCount > 0) {
+		for (const amount of await amounts.all()) {
+			expect(amount).toBeVisible();
+
+			const amountText = await amount.innerText();
+
+			expect(amountText.replace(/\n/, ' ')).toMatch(/\d+x im Warenkorb/);
+		}
+	} else {
+		expect(amounts).toHaveLength(0);
+	}
 });
