@@ -1,19 +1,12 @@
 <script lang="ts">
 	import { ProductItem } from '@/components';
 	import type { Product } from '@/models';
-	import { cartCounts, getCounts, filterProducts, search } from '$lib';
+	import { filterProducts, search } from '$lib';
 	import { api } from '@/utils/api';
 
-	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
 	export let products: Product[];
-
-	const cartPromise = api.cart();
-
-	onMount(async () => {
-		cartCounts.set(await getCounts(cartPromise));
-	});
 </script>
 
 <ul id="product-list" in:fade>

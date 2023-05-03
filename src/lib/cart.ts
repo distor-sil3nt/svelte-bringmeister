@@ -1,10 +1,9 @@
+import type { AwaitedPromise } from '@/models';
 import type { api } from '@/utils/api';
 
-export const getCounts = async (
-	cartPromise: ReturnType<typeof api.cart>
-): Promise<{ [key: string]: number }> => {
-	const cartData = await cartPromise;
-
+export const getCounts = (
+	cartData: AwaitedPromise<ReturnType<typeof api.cart>>
+): { [key: string]: number } => {
 	return cartData.products.reduce(
 		(previous, product) => ({
 			...previous,
