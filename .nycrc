@@ -5,6 +5,7 @@
   "exclude": [
     "node_modules",
     "src/utils/api/*",
+    "src/hooks.server.ts",
     "test/"
   ],
   "extends": [
