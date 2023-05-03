@@ -3,12 +3,14 @@
 	import type { HttpStatusType, Product } from '@/models';
 	import { checkImage, formatCurrency } from '@/utils/helpers';
 	import { cartCounts } from '$lib';
+
 	import { beforeUpdate, onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 
 	export let product: Product;
 
 	$: ({ name, image, basePrice, baseUnit, sku } = product);
-  $: cartCount = $cartCounts[sku]
+	$: cartCount = $cartCounts[sku];
 	$: src = `${image}?imwidth=175`;
 
 	const formattedBasePrice = formatCurrency(product.basePrice, 'de-DE', 'EUR');
@@ -33,7 +35,7 @@
 		{/if}
 
 		{#if cartCount}
-			<div aria-label="amount in cart">
+			<div aria-label="amount in cart" in:fade>
 				<div>{`${cartCount}x`}</div>
 				<div class="label">im Warenkorb</div>
 			</div>

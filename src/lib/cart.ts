@@ -1,13 +1,15 @@
-import { getFromApi } from "@/utils/api";
+import type { api } from '@/utils/api';
 
-export const getCounts = async (): Promise<{ [key: string]: number }> => {
-  const cart = await getFromApi().cart();
+export const getCounts = async (
+	cartPromise: ReturnType<typeof api.cart>
+): Promise<{ [key: string]: number }> => {
+	const cartData = await cartPromise;
 
-  return cart.products.reduce(
-    (previous, product) => ({
-      ...previous,
-      [product.sku]: product.quantity
-    }),
-    {}
-  );
+	return cartData.products.reduce(
+		(previous, product) => ({
+			...previous,
+			[product.sku]: product.quantity
+		}),
+		{}
+	);
 };

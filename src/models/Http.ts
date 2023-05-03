@@ -4,3 +4,5 @@ export enum HttpStatus {
 }
 
 export type HttpStatusType = `${HttpStatus}`
+
+export type AwaitedPromise<T> = Awaited<Promise<PromiseLike<T>>>

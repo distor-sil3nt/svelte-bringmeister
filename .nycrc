@@ -1,9 +1,11 @@
 {
-  "src": [
-    "src"
-  ],
   "include": [
     "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/utils/api/*",
+    "test/"
   ],
   "extends": [
     "@istanbuljs/nyc-config-typescript"

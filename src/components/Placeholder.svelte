@@ -1,5 +1,6 @@
 <script lang="ts">
-	import Icon from './Icon.svelte';
+	import { Icon } from '@/components';
+
 	export let name: string;
 </script>
 

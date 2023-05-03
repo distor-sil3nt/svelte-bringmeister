@@ -1,7 +1,7 @@
 import { fakeCartData } from './cart';
 import { productsData } from './products';
 
-export function getFromApi() {
+export const getFromApi = () => {
 	return {
 		cart: async () => {
 			return new Promise<typeof fakeCartData>((resolve) => {
@@ -15,3 +15,5 @@ export function getFromApi() {
 		}
 	};
 }
+
+export const api = getFromApi()
