@@ -39,8 +39,5 @@
     "typescript": "^4.9.5",
     "vite": "^4.3.3"
   },
-  "type": "module",
-  "dependencies": {
-    "@formkit/auto-animate": "^1.0.0-beta.6"
-  }
+  "type": "module"
 }
